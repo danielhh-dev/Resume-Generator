@@ -1,2 +1,2 @@
 # JavaScriptMaster
-Este repositorio contiene un curso para especializarse en el uso JavaScript a nivel senior
+Este repositorio contiene  contenido para especializarse en el uso JavaScript a nivel Semi-Senior

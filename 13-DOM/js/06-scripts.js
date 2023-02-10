@@ -26,7 +26,7 @@ console.log(textoEncabezado);
 
 // Ahora, aquí puedes ver que estoy asignando el Texto a una variable, pero también puedes modificarlo de diferentes formas...
 
-document.querySelector('.contenido-hero h1').textContent = 'Nuevo Heading'
+document.querySelector('.contenido-hero h1').textContent = 'Nuevo Heading';
 
 // otra opción seria con una variable.
 

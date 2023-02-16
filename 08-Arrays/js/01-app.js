@@ -17,5 +17,4 @@ const deTodo = ["Hola", 10, true, "si", null, { nombre: 'Juan', trabajo: 'Progr
 console.log(deTodo);
 
 // incluso un array puede tener un array dentro
-
 // Personalmente encuentro más fácil de utilizar la sintaxis de llaves asi que esa sera la que estaremos utilizando, pero recuerda, un arreglo es una forma de agrupar grandes cantidades de información en una sola variable.

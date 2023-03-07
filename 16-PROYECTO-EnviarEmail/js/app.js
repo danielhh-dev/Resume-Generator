@@ -121,4 +121,5 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.reset();
         comprobarEmail();
     }
+    
 });

@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    
+    const email = {
+        email: '',
+        asunto: '',
+        mensaje: ''
+    }
 
     // Seleccionar los elementos de la interfaz
     const inputEmail = document.querySelector('#email');

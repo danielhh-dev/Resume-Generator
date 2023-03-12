@@ -4,7 +4,6 @@
 
 window.addEventListener('scroll', () => {
     // console.log('scrolling...');
-
     // Detectar el Scrolling vertical...
     // const pxScroll = window.scrollY;
     // console.log(pxScroll);

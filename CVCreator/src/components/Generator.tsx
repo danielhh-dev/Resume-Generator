@@ -9,62 +9,86 @@ import {
 } from "@react-pdf/renderer";
 
 const CVGenerator: React.FC = () => {
-  const [nombre, setNombre] = useState<string>("");
-  const [correo, setCorreo] = useState<string>("");
-  const [tel, setTel] = useState<string>("");
-  const [experiencia, setExperiencia] = useState<string>("");
-  const [educacion, setEducacion] = useState<string>("");
-  const [habilidades, setHabilidades] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [position, setPosition] = useState<string>("");
+  const [linkedin, setLinkedin] = useState<string>("");
+  const [socialMedia1, setSocialMedia1] = useState<string>("");
+  const [socialMedia2, setSocialMedia2] = useState<string>("");
+  const [socialMedia3, setSocialMedia3] = useState<string>("");
+  const [experience, setExperience] = useState<string>("");
+  const [education, setEducation] = useState<string>("");
+  const [newSkill, setNewSkill] = useState<string>("");
+  const [skillsList, setSkillsList] = useState<string[]>([]);
 
-  const generarCV = () => {
-    // Crea un nuevo documento PDF
+  const addSkill = () => {
+    if (newSkill.trim() !== "") {
+      setSkillsList((prevSkills) => [...prevSkills, newSkill.trim()]);
+      setNewSkill("");
+    }
+  };
+
+  const deleteSkill = (index: number) => {
+    setSkillsList((prevSkills) => prevSkills.filter((_, i) => i !== index));
+  };
+
+  const generateCV = () => {
+    // Create a new PDF document
     const MyDocument: React.FC = () => (
       <Document>
         <Page>
-          <View style={styles.contenedor}>
-            <Text style={styles.nombre}>{nombre}</Text>
-            <Text style={styles.contenido}>{correo}</Text>
-            <Text style={styles.contenido}>{tel}</Text>
+          <View style={styles.container}>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.content}>{email}</Text>
+            <Text style={styles.content}>{phone}</Text>
+            <Text style={styles.content}>{linkedin}</Text>
             <View style={styles.hrContainer}>
               <View style={styles.hr} />
             </View>
 
-            <Text style={styles.titulo}>Experiencia:</Text>
-            <Text style={styles.contenido}>{experiencia}</Text>
-            <Text style={styles.titulo}>Educación:</Text>
-            <Text style={styles.contenido}>{educacion}</Text>
-            <Text style={styles.titulo}>Habilidades:</Text>
-            <Text style={styles.contenido}>{habilidades}</Text>
+            <Text style={styles.title}>Experience:</Text>
+            <Text style={styles.content}>{experience}</Text>
+            <Text style={styles.title}>Education:</Text>
+            <Text style={styles.content}>{education}</Text>
+            <Text style={styles.title}>Skills:</Text>
+
+            <Text style={styles.title}>Habilidades:</Text>
+            {skillsList.map((skill, index) => (
+              <Text key={index} style={styles.skillsList}>
+                {skill}
+              </Text>
+            ))}
           </View>
         </Page>
       </Document>
     );
 
-    // Renderiza el PDF y proporciona el enlace para descargarlo
+    // Render the PDF and provide the download link
     const pdfDoc = <MyDocument />;
     return (
-      <PDFDownloadLink document={pdfDoc} fileName="mi_curriculum.pdf">
-        Generar Currículum
+      <PDFDownloadLink document={pdfDoc} fileName="my_resume.pdf">
+        <button>Generate CV</button>
       </PDFDownloadLink>
     );
   };
 
   const styles = StyleSheet.create({
-    contenedor: {
+    container: {
       textAlign: "center",
     },
-    nombre: {
+    name: {
       fontSize: 24,
       fontWeight: "bold",
       marginBottom: 10,
     },
-    titulo: {
+    title: {
       fontSize: 18,
       fontWeight: "bold",
       marginTop: 30,
       marginBottom: 5,
     },
-    contenido: {
+    content: {
       fontSize: 12,
       marginBottom: 10,
     },
@@ -80,45 +104,100 @@ const CVGenerator: React.FC = () => {
       width: "90%",
       textAlign: "center",
     },
+    skillsList: {
+      textAlign: "left",
+    },
   });
 
   return (
     <div>
-      <h1>Generador de Currículum</h1>
-      <label>Nombre:</label>
-      <input
-        type="text"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-      />
-      <label>Correo:</label>
-      <input
-        type="email"
-        value={correo}
-        onChange={(e) => setCorreo(e.target.value)}
-      />
-      <label>Teléfono:</label>
-      <input type="text" value={tel} onChange={(e) => setTel(e.target.value)} />
+      <h1>CV Generator</h1>
 
-      <label>Experiencia:</label>
+      {/* Personal information */}
+      <section id="personal-info">
+        <label>Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label>Position:</label>
+        <input
+          type="text"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+        />
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label>Phone:</label>
+        <input
+          type="text"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+      </section>
+
+      {/* Social Media */}
+      <section id="social-media">
+        <label>LinkedIn:</label>
+        <input
+          type="text"
+          value={linkedin}
+          onChange={(e) => setLinkedin(e.target.value)}
+        />
+        <label>Extra Social Media:</label>
+        <input
+          type="text"
+          value={socialMedia1}
+          onChange={(e) => setSocialMedia1(e.target.value)}
+        />
+        <label>Extra Social Media:</label>
+        <input
+          type="text"
+          value={socialMedia2}
+          onChange={(e) => setSocialMedia2(e.target.value)}
+        />
+        <label>Extra Social Media:</label>
+        <input
+          type="text"
+          value={socialMedia3}
+          onChange={(e) => setSocialMedia3(e.target.value)}
+        />
+      </section>
+
+      <label>Experience:</label>
       <textarea
-        value={experiencia}
-        onChange={(e) => setExperiencia(e.target.value)}
+        value={experience}
+        onChange={(e) => setExperience(e.target.value)}
       />
 
-      <label>Educación:</label>
+      <label>Education:</label>
       <textarea
-        value={educacion}
-        onChange={(e) => setEducacion(e.target.value)}
+        value={education}
+        onChange={(e) => setEducation(e.target.value)}
       />
 
       <label>Habilidades:</label>
       <textarea
-        value={habilidades}
-        onChange={(e) => setHabilidades(e.target.value)}
+        value={newSkill}
+        onChange={(e) => setNewSkill(e.target.value)}
       />
+      <button onClick={addSkill}>Add Skill</button>
 
-      {generarCV()}
+      <ul>
+        {skillsList.map((skill, index) => (
+          <li key={index}>
+            {skill}
+            <button onClick={() => deleteSkill(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+
+      {generateCV()}
     </div>
   );
 };

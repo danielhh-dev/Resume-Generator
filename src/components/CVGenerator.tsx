@@ -13,9 +13,14 @@ const CVGenerator: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [experience, setExperience] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [since, setSince] = useState<string>("");
+  const [isWorking, setIsWorking] = useState<boolean>(false);
+  const [until, setUntil] = useState<string>("");
   const [education, setEducation] = useState<string>("");
   const [skills, setSkills] = useState<string[]>([]);
   const [newSkill, setNewSkill] = useState<string>("");
+  const [resumeName, setResumeName] = useState<string>("");
 
   const addSkill = () => {
     if (newSkill.trim() !== "") {
@@ -37,8 +42,11 @@ const CVGenerator: React.FC = () => {
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.content}>{email}</Text>
             <Text style={styles.content}>{phone}</Text>
-            <Text style={styles.title}>Experience:</Text>
-            <Text style={styles.content}>{experience}</Text>
+            {/* Experience */}
+            <Text style={styles.title}>-{experience}</Text>
+            <Text style={styles.content}>
+              {company}, {since} - {until}
+            </Text>
             <Text style={styles.title}>Education:</Text>
             <Text style={styles.content}>{education}</Text>
             <Text style={styles.title}>Skills:</Text>
@@ -55,7 +63,7 @@ const CVGenerator: React.FC = () => {
     // Render the PDF and provide the link to download it
     const pdfDoc = <MyDocument />;
     return (
-      <PDFDownloadLink document={pdfDoc} fileName="my_resume.pdf">
+      <PDFDownloadLink document={pdfDoc} fileName={`${resumeName}.pdf`}>
         <button className="btn btn-primary">Generate CV</button>
       </PDFDownloadLink>
     );
@@ -94,6 +102,7 @@ const CVGenerator: React.FC = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </section>
+
         <section>
           <label>Email:</label>
           <input
@@ -109,11 +118,33 @@ const CVGenerator: React.FC = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
-
-        <label>Experience:</label>
-        <textarea
+        {/* Experience */}
+        <label>Position:</label>
+        <input
           value={experience}
           onChange={(e) => setExperience(e.target.value)}
+        />
+        <label>Company:</label>
+        <input value={company} onChange={(e) => setCompany(e.target.value)} />
+        <label>Since:</label>
+        <input
+          value={since}
+          type="date"
+          onChange={(e) => setSince(e.target.value)}
+        />
+
+        <label>I'm working here:</label>
+        <input
+          type="checkbox"
+          checked={isWorking}
+          onChange={(e) => setIsWorking(e.target.checked)}
+        />
+        <label>Until:</label>
+        <input
+          value={until}
+          type="date"
+          onChange={(e) => setUntil(e.target.value)}
+          disabled={isWorking} // Deshabilitar el input si el checkbox es true
         />
 
         <label>Education:</label>
@@ -144,6 +175,13 @@ const CVGenerator: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        <label htmlFor="">Resume Name: </label>
+        <input
+          type="text"
+          value={resumeName}
+          onChange={(e) => setResumeName(e.target.value)}
+        />
 
         {generateCV()}
       </div>

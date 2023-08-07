@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import {
-  PDFDownloadLink,
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-} from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import BasicInfoComponent from "./other/BasicInfoComponent";
 import ExperienceComponent from "./other/ExperienceComponent";
 import EducationComponent from "./other/EducationComponent";
+import PDFDocument from "./other/PDFDocument";
 import { Experience } from "../interface/ExperienceProps";
 import { Education } from "../interface/EducationProps";
+import SkillsComponent from "./other/SkillsComponent";
 
 const CVGenerator: React.FC = () => {
   // Basic info
@@ -111,81 +106,24 @@ const CVGenerator: React.FC = () => {
   };
 
   const generateCV = () => {
-    // Create a new PDF document
-    const MyDocument: React.FC = () => (
-      <Document>
-        <Page>
-          <View style={styles.container}>
-            {/* Basic info */}
-            <Text style={styles.name}>{name}</Text>
-            <Text style={styles.content}>{pretendedPosition}</Text>
-            <Text style={styles.content}>{email}</Text>
-            <Text style={styles.content}>{phone}</Text>
-            <Text style={styles.content}>About Me: {description}</Text>
-            {/* Experience */}
-            <Text style={styles.title}>Experience:</Text>
-            {experiences.map((exp, index) => (
-              <View key={index}>
-                <Text>{exp.position}</Text>
-                <Text style={styles.content}>
-                  {exp.company}, {exp.since} -{" "}
-                  {exp.isWorking ? "Present" : exp.until}
-                </Text>
-              </View>
-            ))}
-            {/* Education */}
-            <Text style={styles.title}>Education:</Text>
-            {educationList.map((edu, index) => (
-              <View key={index}>
-                <Text>
-                  {edu.degree} in {edu.university}
-                </Text>
-                <Text style={styles.content}>
-                  {edu.startDate} to {edu.isOngoing ? "Present" : edu.endDate}
-                </Text>
-              </View>
-            ))}
-            {/* Skills */}
-            <Text style={styles.title}>Skills:</Text>
-            {skills.map((skill, index) => (
-              <Text key={index} style={styles.content}>
-                {skill}
-              </Text>
-            ))}
-          </View>
-        </Page>
-      </Document>
+    const pdfDoc = (
+      <PDFDocument
+        name={name}
+        pretendedPosition={pretendedPosition}
+        email={email}
+        phone={phone}
+        description={description}
+        experiences={experiences}
+        educationList={educationList}
+        skills={skills}
+      />
     );
-
-    // Render the PDF and provide the link to download it
-    const pdfDoc = <MyDocument />;
     return (
       <PDFDownloadLink document={pdfDoc} fileName={`${resumeName}.pdf`}>
         <button className="btn btn-primary">Generate CV</button>
       </PDFDownloadLink>
     );
   };
-
-  const styles = StyleSheet.create({
-    container: {
-      textAlign: "center",
-    },
-    name: {
-      fontSize: 24,
-      fontWeight: "bold",
-      marginBottom: 10,
-    },
-    title: {
-      fontSize: 18,
-      fontWeight: "bold",
-      marginTop: 10,
-      marginBottom: 5,
-    },
-    content: {
-      fontSize: 12,
-      marginBottom: 10,
-    },
-  });
 
   return (
     <div className="container mb-5 pb-5">
@@ -239,28 +177,14 @@ const CVGenerator: React.FC = () => {
           setEducationList={setEducationList}
         />
 
-        <label>Skills:</label>
-        <textarea
-          value={newSkill}
-          onChange={(e) => setNewSkill(e.target.value)}
+        {/* Skills */}
+        <SkillsComponent
+          newSkill={newSkill}
+          setNewSkill={setNewSkill}
+          addSkill={addSkill}
+          deleteSkill={deleteSkill}
+          skills={skills}
         />
-        <button className="btn btn-primary" onClick={addSkill}>
-          Add Skill
-        </button>
-
-        <ul>
-          {skills.map((skill, index) => (
-            <li key={index}>
-              {skill}
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteSkill(index)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
 
         <label htmlFor="">Resume Name: </label>
         <input

@@ -7,22 +7,11 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
-
-interface Experience {
-  position: string;
-  company: string;
-  since: string;
-  until: string;
-  isWorking: boolean;
-}
-
-interface Education {
-  university: string;
-  degree: string;
-  startDate: string;
-  endDate: string;
-  isOngoing: boolean;
-}
+import BasicInfoComponent from "./other/BasicInfoComponent";
+import ExperienceComponent from "./other/ExperienceComponent";
+import EducationComponent from "./other/EducationComponent";
+import { Experience } from "../interface/ExperienceProps";
+import { Education } from "../interface/EducationProps";
 
 const CVGenerator: React.FC = () => {
   // Basic info
@@ -203,146 +192,52 @@ const CVGenerator: React.FC = () => {
       <h1>CV Generator</h1>
       <div className=" d-flex flex-wrap gap-5">
         {/* Basic info */}
-        <section>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </section>
-        <section>
-          <label>Position:</label>
-          <input
-            type="text"
-            value={pretendedPosition}
-            onChange={(e) => setPretendedPosition(e.target.value)}
-          />
-        </section>
-        <section>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </section>
-
-        <label>Phone:</label>
-        <input
-          type="text"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+        <BasicInfoComponent
+          name={name}
+          pretendedPosition={pretendedPosition}
+          email={email}
+          phone={phone}
+          description={description}
+          setName={setName}
+          setPretendedPosition={setPretendedPosition}
+          setEmail={setEmail}
+          setPhone={setPhone}
+          setDescription={setDescription}
         />
-        <label>About Me:</label>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
         {/* Experience */}
-        <div className="input-group mt-4 gap-4">
-          <label>Position:</label>
-          <input
-            value={experience}
-            onChange={(e) => setExperience(e.target.value)}
-          />
-          <label>Company:</label>
-          <input value={company} onChange={(e) => setCompany(e.target.value)} />
-          <label>Since:</label>
-          <input
-            value={since}
-            type="date"
-            onChange={(e) => setSince(e.target.value)}
-          />
-
-          <label>I'm working here:</label>
-          <input
-            type="checkbox"
-            checked={isWorking}
-            onChange={(e) => setIsWorking(e.target.checked)}
-          />
-          <label>Until:</label>
-          <input
-            value={until}
-            type="date"
-            onChange={(e) => setUntil(e.target.value)}
-            disabled={isWorking}
-          />
-
-          <button className="btn btn-primary" onClick={addExperience}>
-            Add Experience
-          </button>
-        </div>
-
-        <ul className="">
-          {experiences.map((exp, index) => (
-            <li key={index} className="my-3">
-              {exp.position} at {exp.company}, {exp.since} -{" "}
-              {exp.isWorking ? "Present" : exp.until}
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteExperience(index)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+        <ExperienceComponent
+          experience={experience}
+          company={company}
+          since={since}
+          isWorking={isWorking}
+          until={until}
+          setExperience={setExperience}
+          setCompany={setCompany}
+          setSince={setSince}
+          setIsWorking={setIsWorking}
+          setUntil={setUntil}
+          addExperience={addExperience}
+          deleteExperience={deleteExperience}
+          experiences={experiences}
+        />
 
         {/* Education */}
-        <div className="container mb-5">
-          {/* ... (other JSX) */}
-          <label>University:</label>
-          <input
-            value={university}
-            onChange={(e) => setUniversity(e.target.value)}
-          />
-
-          <label>Degree:</label>
-          <input value={degree} onChange={(e) => setDegree(e.target.value)} />
-
-          <label>Start Date:</label>
-          <input
-            value={startDate}
-            type="date"
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-
-          <label>Ongoing:</label>
-          <input
-            type="checkbox"
-            checked={isOngoing}
-            onChange={(e) => setIsOngoing(e.target.checked)}
-          />
-
-          <label>End Date:</label>
-          <input
-            value={endDate}
-            type="date"
-            onChange={(e) => setEndDate(e.target.value)}
-            disabled={isOngoing}
-          />
-
-          <button className="btn btn-primary" onClick={addEducation}>
-            Add Education
-          </button>
-
-          <ul>
-            {educationList.map((edu, index) => (
-              <li key={index}>
-                {edu.degree} in {edu.university}, {edu.startDate} -{" "}
-                {edu.isOngoing ? "Present" : edu.endDate}
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteEducation(index)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <EducationComponent
+          university={university}
+          degree={degree}
+          startDate={startDate}
+          endDate={endDate}
+          isOngoing={isOngoing}
+          setUniversity={setUniversity}
+          setDegree={setDegree}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          setIsOngoing={setIsOngoing}
+          addEducation={addEducation}
+          deleteEducation={deleteEducation}
+          educationList={educationList}
+          setEducationList={setEducationList}
+        />
 
         <label>Skills:</label>
         <textarea

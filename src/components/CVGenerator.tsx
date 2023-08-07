@@ -121,7 +121,7 @@ const CVGenerator: React.FC = () => {
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.content}>{email}</Text>
             <Text style={styles.content}>{phone}</Text>
-            <Text style={styles.content}>Sobre mí: {description}</Text>
+            <Text style={styles.content}>About Me: {description}</Text>
             {/* Experience */}
             <Text style={styles.title}>Experience:</Text>
             {experiences.map((exp, index) => (
@@ -129,11 +129,11 @@ const CVGenerator: React.FC = () => {
                 <Text>{exp.position}</Text>
                 <Text style={styles.content}>
                   {exp.company}, {exp.since} -{" "}
-                  {exp.isWorking ? "Presente" : exp.until}
+                  {exp.isWorking ? "Present" : exp.until}
                 </Text>
               </View>
             ))}
-            {/* Educación */}
+            {/* Education */}
             <Text style={styles.title}>Education:</Text>
             {educationList.map((edu, index) => (
               <View key={index}>
@@ -141,11 +141,11 @@ const CVGenerator: React.FC = () => {
                   {edu.degree} in {edu.university}
                 </Text>
                 <Text style={styles.content}>
-                  {edu.startDate} al {edu.isOngoing ? "Presente" : edu.endDate}
+                  {edu.startDate} to {edu.isOngoing ? "Present" : edu.endDate}
                 </Text>
               </View>
             ))}
-            {/* Habilidades */}
+            {/* Skills */}
             <Text style={styles.title}>Skills:</Text>
             {skills.map((skill, index) => (
               <Text key={index} style={styles.content}>
@@ -215,7 +215,7 @@ const CVGenerator: React.FC = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
-        <label>Presentación:</label>
+        <label>About Me:</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -259,7 +259,7 @@ const CVGenerator: React.FC = () => {
           {experiences.map((exp, index) => (
             <li key={index} className="my-3">
               {exp.position} at {exp.company}, {exp.since} -{" "}
-              {exp.isWorking ? "Presente" : exp.until}
+              {exp.isWorking ? "Present" : exp.until}
               <button
                 className="btn btn-danger"
                 onClick={() => deleteExperience(index)}
@@ -270,9 +270,9 @@ const CVGenerator: React.FC = () => {
           ))}
         </ul>
 
-        {/* Educación */}
+        {/* Education */}
         <div className="container mb-5">
-          {/* ... (otro JSX) */}
+          {/* ... (other JSX) */}
           <label>University:</label>
           <input
             value={university}

@@ -25,37 +25,33 @@ interface Education {
 }
 
 const CVGenerator: React.FC = () => {
+  // Basic info
   const [name, setName] = useState<string>("");
+  const [pretendedPosition, setPretendedPosition] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  // Experience
   const [experience, setExperience] = useState<string>("");
   const [company, setCompany] = useState<string>("");
   const [since, setSince] = useState<string>("");
   const [isWorking, setIsWorking] = useState<boolean>(false);
   const [until, setUntil] = useState<string>("");
+  const [experiences, setExperiences] = useState<Array<Experience>>([]);
+  // Skills
   const [skills, setSkills] = useState<string[]>([]);
   const [newSkill, setNewSkill] = useState<string>("");
-  const [resumeName, setResumeName] = useState<string>("");
-  const [experiences, setExperiences] = useState<Array<Experience>>([]);
+  // Education
   const [educationList, setEducationList] = useState<Array<Education>>([]);
   const [university, setUniversity] = useState<string>("");
   const [degree, setDegree] = useState<string>("");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
   const [isOngoing, setIsOngoing] = useState<boolean>(false);
+  // Format
+  const [resumeName, setResumeName] = useState<string>("");
 
-  const addSkill = () => {
-    if (newSkill.trim() !== "") {
-      setSkills((prevSkills) => [...prevSkills, newSkill.trim()]);
-      setNewSkill("");
-    }
-  };
-
-  const deleteSkill = (index: number) => {
-    setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
-  };
-
+  // Exprecience
   const addExperience = () => {
     if (
       experience.trim() !== "" &&
@@ -84,6 +80,7 @@ const CVGenerator: React.FC = () => {
     );
   };
 
+  // Education
   const addEducation = () => {
     if (
       university.trim() !== "" &&
@@ -112,13 +109,27 @@ const CVGenerator: React.FC = () => {
     );
   };
 
+  // Skills
+  const addSkill = () => {
+    if (newSkill.trim() !== "") {
+      setSkills((prevSkills) => [...prevSkills, newSkill.trim()]);
+      setNewSkill("");
+    }
+  };
+
+  const deleteSkill = (index: number) => {
+    setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
+  };
+
   const generateCV = () => {
     // Create a new PDF document
     const MyDocument: React.FC = () => (
       <Document>
         <Page>
           <View style={styles.container}>
+            {/* Basic info */}
             <Text style={styles.name}>{name}</Text>
+            <Text style={styles.content}>{pretendedPosition}</Text>
             <Text style={styles.content}>{email}</Text>
             <Text style={styles.content}>{phone}</Text>
             <Text style={styles.content}>About Me: {description}</Text>
@@ -191,6 +202,7 @@ const CVGenerator: React.FC = () => {
     <div className="container mb-5 pb-5">
       <h1>CV Generator</h1>
       <div className=" d-flex flex-wrap gap-5">
+        {/* Basic info */}
         <section>
           <label>Name:</label>
           <input
@@ -199,7 +211,14 @@ const CVGenerator: React.FC = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </section>
-
+        <section>
+          <label>Position:</label>
+          <input
+            type="text"
+            value={pretendedPosition}
+            onChange={(e) => setPretendedPosition(e.target.value)}
+          />
+        </section>
         <section>
           <label>Email:</label>
           <input
@@ -220,6 +239,7 @@ const CVGenerator: React.FC = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+
         {/* Experience */}
         <div className="input-group mt-4 gap-4">
           <label>Position:</label>

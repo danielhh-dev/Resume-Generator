@@ -4,6 +4,7 @@ export interface Experience {
   since: string;
   until: string;
   isWorking: boolean;
+  workDescription: string;
 }
 
 export interface ExperienceComponentProps {
@@ -12,6 +13,8 @@ export interface ExperienceComponentProps {
   since: string;
   isWorking: boolean;
   until: string;
+  workDescription: string;
+  setWorkDescription: (workDescription: string) => void;
   setExperience: (experience: string) => void;
   setCompany: (company: string) => void;
   setSince: (since: string) => void;

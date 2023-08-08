@@ -13,20 +13,21 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
   skills,
 }) => (
   <Document>
-    <Page>
-      <View style={styles.container}>
+    <Page style={styles.container}>
+      <View>
         {/* Basic info */}
-        <View style={styles.basicInfoContainer}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.content}>{pretendedPosition}</Text>
-          <View style={styles.basicInfoDetails}>
-            <Text style={styles.content}>{email}</Text>
-            <Text style={styles.content}>{phone}</Text>
+        <View style={styles.doble}>
+          <View>
+            <Text style={styles.name}>Nombre completo{name}</Text>
+            <Text style={styles.position}>Puesto{pretendedPosition}</Text>
+          </View>
+          <View>
+            <Text style={styles.content}>Correo{email}</Text>
+            <Text style={styles.content}>telefono{phone}</Text>
           </View>
         </View>
-        <View>
-          <Text style={styles.content}>About Me: {description}</Text>
-        </View>
+        <View style={styles.hr} />
+        <Text style={styles.content}>About Me: {description}</Text>
         {/* Experience */}
         <View>
           <Text style={styles.title}>Experience:</Text>
@@ -37,6 +38,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
                 {exp.company}, {exp.since} -{" "}
                 {exp.isWorking ? "Present" : exp.until}
               </Text>
+              <Text> {exp.workDescription}</Text>
             </View>
           ))}
         </View>
@@ -57,7 +59,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         <Text style={styles.title}>Skills:</Text>
         {skills.map((skill, index) => (
           <Text key={index} style={styles.content}>
-            {skill}
+            • {skill}
           </Text>
         ))}
       </View>
@@ -67,38 +69,35 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingHorizontal: 50,
+    paddingVertical: 30,
   },
   name: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 2,
   },
   title: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: "bold",
     marginTop: 10,
     marginBottom: 5,
   },
   content: {
-    fontSize: 12,
-    marginBottom: 10,
+    fontSize: 8,
   },
   position: {
     fontSize: 12,
   },
-  basicInfoContainer: {
-    flexDirection: "column",
+  doble: {
+    flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 10,
   },
-  basicInfoDetails: {
-    flexDirection: "column",
-    flex: 1,
-    marginLeft: 10,
+  hr: {
+    marginVertical: 5,
+    width: "100%",
+    height: 1,
+    backgroundColor: "black",
   },
 });
 

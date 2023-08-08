@@ -15,6 +15,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   addExperience,
   deleteExperience,
   experiences,
+  workDescription,
+  setWorkDescription,
 }) => (
   <div>
     <div className="input-group mt-4 gap-4">
@@ -57,22 +59,32 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         }
         disabled={isWorking}
       />
+      <label>workDescription:</label>
+      <textarea
+        value={workDescription}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setWorkDescription(e.target.value)
+        }
+      />
       <button className="btn btn-primary" onClick={addExperience}>
         Add Experience
       </button>
     </div>
     <ul className="">
       {experiences.map((exp, index) => (
-        <li key={index} className="my-3">
-          {exp.position} at {exp.company}, {exp.since} -{" "}
-          {exp.isWorking ? "Present" : exp.until}
-          <button
-            className="btn btn-danger"
-            onClick={() => deleteExperience(index)}
-          >
-            Delete
-          </button>
-        </li>
+        <>
+          <li key={index} className="my-3">
+            {exp.position} at {exp.company}, {exp.since} -
+            {exp.isWorking ? "Present" : exp.until}
+            <button
+              className="btn btn-danger"
+              onClick={() => deleteExperience(index)}
+            >
+              Delete
+            </button>
+          </li>
+          <span>{exp.workDescription}</span>
+        </>
       ))}
     </ul>
   </div>

@@ -17,6 +17,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   experiences,
   workDescription,
   setWorkDescription,
+  techStack,
+  setTechStack,
 }) => (
   <div>
     <div className="input-group mt-4 gap-4">
@@ -66,6 +68,13 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           setWorkDescription(e.target.value)
         }
       />
+      <label>Terch stack:</label>
+      <textarea
+        value={techStack}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setTechStack(e.target.value)
+        }
+      />
       <button className="btn btn-primary" onClick={addExperience}>
         Add Experience
       </button>
@@ -84,6 +93,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
             </button>
           </li>
           <span>{exp.workDescription}</span>
+          <span>{exp.techStack}</span>
         </>
       ))}
     </ul>

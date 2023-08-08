@@ -39,6 +39,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
                 {exp.isWorking ? "Present" : exp.until}
               </Text>
               <Text> {exp.workDescription}</Text>
+              <Text> {exp.techStack}</Text>
             </View>
           ))}
         </View>

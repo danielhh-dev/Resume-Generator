@@ -22,6 +22,7 @@ const CVGenerator: React.FC = () => {
   const [isWorking, setIsWorking] = useState<boolean>(false);
   const [until, setUntil] = useState<string>("");
   const [workDescription, setWorkDescription] = useState<string>("");
+  const [techStack, setTechStack] = useState<string>("");
   const [experiences, setExperiences] = useState<Array<Experience>>([]);
   // Skills
   const [skills, setSkills] = useState<string[]>([]);
@@ -50,6 +51,7 @@ const CVGenerator: React.FC = () => {
         until: until.trim(),
         isWorking: isWorking,
         workDescription: workDescription.trim(),
+        techStack: techStack.trim(),
       };
       setExperiences((prevExperiences) => [...prevExperiences, newExperience]);
       setExperience("");
@@ -58,6 +60,7 @@ const CVGenerator: React.FC = () => {
       setUntil("");
       setIsWorking(false);
       setWorkDescription("");
+      setTechStack("");
     }
   };
 
@@ -153,6 +156,8 @@ const CVGenerator: React.FC = () => {
           isWorking={isWorking}
           until={until}
           workDescription={workDescription}
+          techStack={techStack}
+          setTechStack={setTechStack}
           setWorkDescription={setWorkDescription}
           setExperience={setExperience}
           setCompany={setCompany}

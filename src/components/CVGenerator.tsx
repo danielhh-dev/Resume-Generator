@@ -134,7 +134,7 @@ const CVGenerator: React.FC = () => {
   return (
     <div className="container mb-5 pb-5">
       <h1>CV Generator</h1>
-      <div className=" d-flex flex-wrap gap-5">
+      <div className=" ">
         {/* Basic info */}
         <BasicInfoComponent
           name={name}

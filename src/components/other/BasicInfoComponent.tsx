@@ -13,48 +13,58 @@ const BasicInfoComponent: React.FC<BasicInfoProps> = ({
   setPhone,
   setDescription,
 }) => (
-  <div className="d-flex flex-wrap gap-5">
-    <section>
-      <label>Name:</label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-      />
+  <div className="d-flex flex-wrap  container  justify-content-center">
+    <section className="  ">
+      <div className="row">
+        <div className="col-12">
+          <label className="">Name:</label>
+          <input
+            type="text"
+            value={name}
+            className="form-control"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
+        </div>
+        <div className="col-12">
+          <label>Position:</label>
+          <input
+            type="text"
+            value={pretendedPosition}
+            className="form-control"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPretendedPosition(e.target.value)
+            }
+          />
+        </div>
+      </div>
     </section>
-    <section>
-      <label>Position:</label>
-      <input
-        type="text"
-        value={pretendedPosition}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setPretendedPosition(e.target.value)
-        }
-      />
-    </section>
-    <section>
+
+    <section className="form-group col-10 col-md-10">
       <label>Email:</label>
       <input
         type="email"
+        className="form-control"
         value={email}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setEmail(e.target.value)
         }
       />
-    </section>
-    <section>
+
       <label>Phone:</label>
       <input
         type="text"
+        className="form-control"
         value={phone}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setPhone(e.target.value)
         }
       />
-    </section>
-    <section>
+
       <label>About Me:</label>
       <textarea
+        className="form-control"
         value={description}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setDescription(e.target.value)

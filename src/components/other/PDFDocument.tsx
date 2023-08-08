@@ -38,8 +38,8 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
                 {exp.company}, {exp.since} -{" "}
                 {exp.isWorking ? "Present" : exp.until}
               </Text>
-              <Text> {exp.workDescription}</Text>
-              <Text> {exp.techStack}</Text>
+              <Text style={styles.content}> {exp.workDescription}</Text>
+              <Text style={styles.textBlackSmall}> {exp.techStack}</Text>
             </View>
           ))}
         </View>
@@ -89,6 +89,8 @@ const styles = StyleSheet.create({
   },
   position: {
     fontSize: 12,
+    fontFamily: "Arial, sans-serif",
+    fontStyle: "italic",
   },
   doble: {
     flexDirection: "row",
@@ -99,6 +101,10 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 1,
     backgroundColor: "black",
+  },
+  textBlackSmall: {
+    fontSize: 12,
+    fontWeight: "extrabold",
   },
 });
 

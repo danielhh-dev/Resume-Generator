@@ -1,7 +1,21 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+  Font,
+} from "@react-pdf/renderer";
 import { PDFDocumentProps } from "../../interface/PDFDocumentProps";
 
+import customFont from "../../assets/font/Poppins/Poppins-Medium.ttf";
+import customFontItalic from "../../assets/font/Poppins/Poppins-Italic.ttf";
+import customFontBold from "../../assets/font/Poppins/Poppins-Bold.ttf";
+Font.register({ family: "Poppins-Medium", src: customFont });
+Font.register({ family: "Poppins", src: customFont });
+Font.register({ family: "Poppins-Italic", src: customFontItalic });
+Font.register({ family: "Poppins-Bold", src: customFontBold });
 const PDFDocument: React.FC<PDFDocumentProps> = ({
   name,
   pretendedPosition,
@@ -76,6 +90,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: "Poppins-Medium",
     marginBottom: 2,
   },
   title: {
@@ -89,8 +104,7 @@ const styles = StyleSheet.create({
   },
   position: {
     fontSize: 12,
-    fontFamily: "Arial, sans-serif",
-    fontStyle: "italic",
+    fontFamily: "Poppins-Italic", // Fuente en itálica
   },
   doble: {
     flexDirection: "row",

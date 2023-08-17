@@ -22,6 +22,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
     <label>University:</label>
     <input
       className="form-control rounded"
+      placeholder="University:"
       value={university}
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
         setUniversity(e.target.value)
@@ -30,6 +31,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
 
     <label>Degree:</label>
     <input
+      placeholder="Degree:"
       className="form-control rounded"
       value={degree}
       onChange={(e: ChangeEvent<HTMLInputElement>) => setDegree(e.target.value)}

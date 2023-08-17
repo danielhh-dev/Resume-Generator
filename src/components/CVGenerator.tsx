@@ -119,6 +119,7 @@ const CVGenerator: React.FC = () => {
         pretendedPosition={pretendedPosition}
         email={email}
         phone={phone}
+        social={social}
         description={description}
         experiences={experiences}
         educationList={educationList}

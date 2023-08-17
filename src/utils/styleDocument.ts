@@ -29,10 +29,13 @@ export const styles = StyleSheet.create({
   about: {
     fontSize: 10,
     fontFamily: "Poppins-Medium",
+    textAlign: "justify",
+    paddingHorizontal: 10,
   },
   position: {
     fontSize: 14,
-    fontFamily: "Poppins-Italic", // Fuente en itálica
+    fontFamily: "Poppins-Italic",
+    marginLeft: 10,
   },
   doble: {
     flexDirection: "row",
@@ -67,5 +70,11 @@ export const styles = StyleSheet.create({
   },
   indentation: {
     marginHorizontal: 10,
+  },
+  my: {
+    marginVertical: 10,
+  },
+  me: {
+    marginRight: 10,
   },
 });

@@ -14,6 +14,7 @@ const SkillsComponent: React.FC<SkillsProps> = ({
       <textarea
         className="form-control rounded"
         value={newSkill}
+        placeholder="Programming: Javascript, Python, Typescript."
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setNewSkill(e.target.value)
         }

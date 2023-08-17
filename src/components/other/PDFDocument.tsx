@@ -27,23 +27,29 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Basic info */}
         <View style={styles.doble}>
           <View>
-            <Text style={styles.name}>Nombre completo{name}</Text>
-            <Text style={styles.position}>Puesto{pretendedPosition}</Text>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.position}>{pretendedPosition}</Text>
           </View>
           <View style={styles.webs}>
-            <Text style={[styles.contentContact, { textAlign: "right" }]}>
-              Correo{email}
+            <Text
+              style={[styles.contentContact, { textAlign: "right" }, styles.me]}
+            >
+              {email}
             </Text>
-            <Text style={[styles.contentContact, { textAlign: "right" }]}>
-              telefono{phone}
+            <Text
+              style={[styles.contentContact, { textAlign: "right" }, styles.me]}
+            >
+              {phone}
             </Text>
-            <Text style={[styles.contentContact, { textAlign: "right" }]}>
-              social{social}
+            <Text
+              style={[styles.contentContact, { textAlign: "right" }, styles.me]}
+            >
+              {social}
             </Text>
           </View>
         </View>
         <View style={styles.hr} />
-        <Text style={styles.about}>About Me: {description}</Text>
+        <Text style={styles.about}>{description}</Text>
         {/* Experience */}
         <View>
           <Text style={styles.title}>Experience:</Text>
@@ -67,10 +73,10 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         <Text style={styles.title}>Education:</Text>
         {educationList.map((edu, index) => (
           <View key={index} style={styles.indentation}>
-            <Text>
+            <Text style={styles.contentSubtitle}>
               {edu.degree} in {edu.university}
             </Text>
-            <Text style={styles.content}>
+            <Text style={styles.info}>
               {edu.startDate} to {edu.isOngoing ? "Present" : edu.endDate}
             </Text>
           </View>
@@ -78,7 +84,10 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Skills */}
         <Text style={styles.title}>Skills:</Text>
         {skills.map((skill, index) => (
-          <Text key={index} style={[styles.content, styles.indentation]}>
+          <Text
+            key={index}
+            style={[styles.info, styles.indentation, styles.my]}
+          >
             • {skill}
           </Text>
         ))}

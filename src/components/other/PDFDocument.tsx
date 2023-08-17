@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Font,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, Font } from "@react-pdf/renderer";
 import { PDFDocumentProps } from "../../interface/PDFDocumentProps";
+import { styles } from "../../utils/styleDocument";
 
 import customFont from "../../assets/font/Poppins/Poppins-Medium.ttf";
 import customFontItalic from "../../assets/font/Poppins/Poppins-Italic.ttf";
@@ -25,6 +19,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
   experiences,
   educationList,
   skills,
+  social,
 }) => (
   <Document>
     <Page style={styles.container}>
@@ -35,9 +30,16 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
             <Text style={styles.name}>Nombre completo{name}</Text>
             <Text style={styles.position}>Puesto{pretendedPosition}</Text>
           </View>
-          <View>
-            <Text style={styles.content}>Correo{email}</Text>
-            <Text style={styles.content}>telefono{phone}</Text>
+          <View style={styles.webs}>
+            <Text style={[styles.contentContact, { textAlign: "right" }]}>
+              Correo{email}
+            </Text>
+            <Text style={[styles.contentContact, { textAlign: "right" }]}>
+              telefono{phone}
+            </Text>
+            <Text style={[styles.contentContact, { textAlign: "right" }]}>
+              social{social}
+            </Text>
           </View>
         </View>
         <View style={styles.hr} />
@@ -52,8 +54,10 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
                 {exp.company}, {exp.since} -{" "}
                 {exp.isWorking ? "Present" : exp.until}
               </Text>
-              <Text style={styles.content}> {exp.workDescription}</Text>
-              <Text style={styles.textBlackSmall}> {exp.techStack}</Text>
+              <Text style={styles.content}>• {exp.workDescription}</Text>
+              <Text style={styles.textBlackSmall}>
+                Tech Stack: {exp.techStack}
+              </Text>
             </View>
           ))}
         </View>
@@ -81,45 +85,5 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
     </Page>
   </Document>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 50,
-    paddingVertical: 30,
-  },
-  name: {
-    fontSize: 16,
-    fontWeight: "bold",
-    fontFamily: "Poppins-Medium",
-    marginBottom: 2,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: "bold",
-    marginTop: 10,
-    marginBottom: 5,
-  },
-  content: {
-    fontSize: 8,
-  },
-  position: {
-    fontSize: 12,
-    fontFamily: "Poppins-Italic", // Fuente en itálica
-  },
-  doble: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  hr: {
-    marginVertical: 5,
-    width: "100%",
-    height: 1,
-    backgroundColor: "black",
-  },
-  textBlackSmall: {
-    fontSize: 12,
-    fontWeight: "extrabold",
-  },
-});
 
 export default PDFDocument;

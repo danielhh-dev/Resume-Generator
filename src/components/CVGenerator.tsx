@@ -13,6 +13,7 @@ const CVGenerator: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [pretendedPosition, setPretendedPosition] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [social, setSocial] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   // Experience
@@ -141,6 +142,8 @@ const CVGenerator: React.FC = () => {
           pretendedPosition={pretendedPosition}
           email={email}
           phone={phone}
+          social={social}
+          setSocial={setSocial}
           description={description}
           setName={setName}
           setPretendedPosition={setPretendedPosition}
@@ -198,6 +201,7 @@ const CVGenerator: React.FC = () => {
 
         <label htmlFor="">Resume Name: </label>
         <input
+          className="form-control rounded m-3"
           type="text"
           value={resumeName}
           onChange={(e) => setResumeName(e.target.value)}

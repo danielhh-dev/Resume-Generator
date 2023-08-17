@@ -21,6 +21,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
     {/* ... (other JSX) */}
     <label>University:</label>
     <input
+      className="form-control rounded"
       value={university}
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
         setUniversity(e.target.value)
@@ -29,12 +30,14 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
 
     <label>Degree:</label>
     <input
+      className="form-control rounded"
       value={degree}
       onChange={(e: ChangeEvent<HTMLInputElement>) => setDegree(e.target.value)}
     />
 
     <label>Start Date:</label>
     <input
+      className="form-control rounded"
       value={startDate}
       type="date"
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -53,6 +56,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
 
     <label>End Date:</label>
     <input
+      className="form-control rounded"
       value={endDate}
       type="date"
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -61,7 +65,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
       disabled={isOngoing}
     />
 
-    <button className="btn btn-primary" onClick={addEducation}>
+    <button className="btn btn-primary m-3" onClick={addEducation}>
       Add Education
     </button>
 

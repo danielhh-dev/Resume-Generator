@@ -12,12 +12,13 @@ const SkillsComponent: React.FC<SkillsProps> = ({
     <>
       <label>Skills:</label>
       <textarea
+        className="form-control rounded"
         value={newSkill}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setNewSkill(e.target.value)
         }
       />
-      <button className="btn btn-primary" onClick={addSkill}>
+      <button className="btn btn-primary m-3" onClick={addSkill}>
         Add Skill
       </button>
 

@@ -6,6 +6,7 @@ export interface PDFDocumentProps {
   pretendedPosition: string;
   email: string;
   phone: string;
+  social: string;
   description: string;
   experiences: Experience[];
   educationList: Education[];

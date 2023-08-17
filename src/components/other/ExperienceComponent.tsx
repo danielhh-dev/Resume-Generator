@@ -20,10 +20,12 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   techStack,
   setTechStack,
 }) => (
-  <div>
-    <div className="input-group mt-4 gap-4">
-      <label>Position:</label>
+  <div className="col-12 container">
+    <div className="input-group mt-4 gap-4 row">
+      <label className="">Position:</label>
       <input
+        className="form-control rounded"
+        type="text"
         value={experience}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setExperience(e.target.value)
@@ -31,6 +33,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       />
       <label>Company:</label>
       <input
+        type="text"
+        className="form-control rounded"
         value={company}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setCompany(e.target.value)
@@ -38,6 +42,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       />
       <label>Since:</label>
       <input
+        className="form-control rounded"
         value={since}
         type="date"
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -54,6 +59,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       />
       <label>Until:</label>
       <input
+        className="form-control rounded"
         value={until}
         type="date"
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -63,6 +69,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       />
       <label>workDescription:</label>
       <textarea
+        className="form-control rounded"
         value={workDescription}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setWorkDescription(e.target.value)
@@ -70,12 +77,13 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       />
       <label>Terch stack:</label>
       <textarea
+        className="form-control rounded"
         value={techStack}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setTechStack(e.target.value)
         }
       />
-      <button className="btn btn-primary" onClick={addExperience}>
+      <button className="btn btn-primary rounded" onClick={addExperience}>
         Add Experience
       </button>
     </div>

@@ -43,18 +43,19 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
           </View>
         </View>
         <View style={styles.hr} />
-        <Text style={styles.content}>About Me: {description}</Text>
+        <Text style={styles.about}>About Me: {description}</Text>
         {/* Experience */}
         <View>
           <Text style={styles.title}>Experience:</Text>
           {experiences.map((exp, index) => (
-            <View key={index}>
-              <Text>{exp.position}</Text>
-              <Text style={styles.content}>
-                {exp.company}, {exp.since} -{" "}
-                {exp.isWorking ? "Present" : exp.until}
+            <View key={index} style={styles.indentation}>
+              <Text style={styles.contentSubtitle}>
+                {exp.position} in {exp.company}
               </Text>
-              <Text style={styles.content}>• {exp.workDescription}</Text>
+              <Text style={styles.info}>
+                {exp.since} - {exp.isWorking ? "Present" : exp.until}
+              </Text>
+              <Text style={styles.description}>• {exp.workDescription}</Text>
               <Text style={styles.textBlackSmall}>
                 Tech Stack: {exp.techStack}
               </Text>
@@ -65,7 +66,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Education */}
         <Text style={styles.title}>Education:</Text>
         {educationList.map((edu, index) => (
-          <View key={index}>
+          <View key={index} style={styles.indentation}>
             <Text>
               {edu.degree} in {edu.university}
             </Text>
@@ -77,7 +78,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Skills */}
         <Text style={styles.title}>Skills:</Text>
         {skills.map((skill, index) => (
-          <Text key={index} style={styles.content}>
+          <Text key={index} style={[styles.content, styles.indentation]}>
             • {skill}
           </Text>
         ))}

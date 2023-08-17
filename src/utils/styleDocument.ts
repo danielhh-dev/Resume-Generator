@@ -7,26 +7,31 @@ export const styles = StyleSheet.create({
     paddingVertical: 30,
   },
   name: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
-    fontFamily: "Poppins-Medium",
+    fontFamily: "Poppins-Bold",
     marginBottom: 4,
   },
   title: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontFamily: "Poppins-Bold",
     marginTop: 10,
     marginBottom: 5,
   },
   contentContact: {
     fontSize: 8,
     textAlign: "right",
+    fontFamily: "Poppins-Medium",
   },
   content: {
     fontSize: 8,
   },
+  about: {
+    fontSize: 10,
+    fontFamily: "Poppins-Medium",
+  },
   position: {
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: "Poppins-Italic", // Fuente en itálica
   },
   doble: {
@@ -40,12 +45,27 @@ export const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   textBlackSmall: {
-    fontSize: 12,
-    fontWeight: "extrabold",
+    fontSize: 9,
+    fontFamily: "Poppins-Bold",
   },
   webs: {
     marginTop: 20,
-    flexDirection: "column", // Stack the Text components vertically
+    flexDirection: "column",
     alignItems: "flex-end",
+  },
+  contentSubtitle: {
+    fontSize: 11,
+    fontFamily: "Poppins-Bold",
+  },
+  info: {
+    fontSize: 10,
+    fontFamily: "Poppins-Medium",
+  },
+  description: {
+    fontSize: 11,
+    fontFamily: "Poppins-Medium",
+  },
+  indentation: {
+    marginHorizontal: 10,
   },
 });

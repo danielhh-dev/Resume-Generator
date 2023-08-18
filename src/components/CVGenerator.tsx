@@ -136,6 +136,7 @@ const CVGenerator: React.FC = () => {
   return (
     <div className="container mb-5 pb-5">
       <h1>CV Generator</h1>
+      <h3>ATS friendly</h3>
       <div className=" ">
         {/* Basic info */}
         <BasicInfoComponent

@@ -134,11 +134,16 @@ const CVGenerator: React.FC = () => {
   };
 
   return (
-    <div className="container mb-5 pb-5">
+    <div className="container-fluid mb-5 pb-5">
       <h1>CV Generator</h1>
       <h3>ATS friendly</h3>
-      <div className=" ">
-        {/* Basic info */}
+
+      {/* Basic info */}
+      <div
+        id="basic-info"
+        className="border container ps-0 p-5 rounded shadow-sm my-5"
+      >
+        <h4 className="text-center mb-5">Basic information</h4>
         <BasicInfoComponent
           name={name}
           pretendedPosition={pretendedPosition}
@@ -153,7 +158,14 @@ const CVGenerator: React.FC = () => {
           setPhone={setPhone}
           setDescription={setDescription}
         />
-        {/* Experience */}
+      </div>
+
+      {/* Experience */}
+      <div
+        id="experience"
+        className="border container  p-5 rounded shadow-sm my-5"
+      >
+        <h4 className="text-center mb-5">Experience</h4>
         <ExperienceComponent
           experience={experience}
           company={company}
@@ -173,44 +185,43 @@ const CVGenerator: React.FC = () => {
           deleteExperience={deleteExperience}
           experiences={experiences}
         />
-
-        {/* Education */}
-        <EducationComponent
-          university={university}
-          degree={degree}
-          startDate={startDate}
-          endDate={endDate}
-          isOngoing={isOngoing}
-          setUniversity={setUniversity}
-          setDegree={setDegree}
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-          setIsOngoing={setIsOngoing}
-          addEducation={addEducation}
-          deleteEducation={deleteEducation}
-          educationList={educationList}
-          setEducationList={setEducationList}
-        />
-
-        {/* Skills */}
-        <SkillsComponent
-          newSkill={newSkill}
-          setNewSkill={setNewSkill}
-          addSkill={addSkill}
-          deleteSkill={deleteSkill}
-          skills={skills}
-        />
-
-        <label htmlFor="">Resume Name: </label>
-        <input
-          className="form-control rounded m-3"
-          type="text"
-          value={resumeName}
-          onChange={(e) => setResumeName(e.target.value)}
-        />
-
-        {generateCV()}
       </div>
+      {/* Education */}
+      <EducationComponent
+        university={university}
+        degree={degree}
+        startDate={startDate}
+        endDate={endDate}
+        isOngoing={isOngoing}
+        setUniversity={setUniversity}
+        setDegree={setDegree}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+        setIsOngoing={setIsOngoing}
+        addEducation={addEducation}
+        deleteEducation={deleteEducation}
+        educationList={educationList}
+        setEducationList={setEducationList}
+      />
+
+      {/* Skills */}
+      <SkillsComponent
+        newSkill={newSkill}
+        setNewSkill={setNewSkill}
+        addSkill={addSkill}
+        deleteSkill={deleteSkill}
+        skills={skills}
+      />
+
+      <label htmlFor="">Resume Name: </label>
+      <input
+        className="form-control rounded m-3"
+        type="text"
+        value={resumeName}
+        onChange={(e) => setResumeName(e.target.value)}
+      />
+
+      {generateCV()}
     </div>
   );
 };

@@ -20,8 +20,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   techStack,
   setTechStack,
 }) => (
-  <div className="d-flex justify-content-between flex-wrap col-12">
-    <div className="row col-md-12">
+  <div className="d-flex justify-content-between flex-wrap col-12 ">
+    <div className="row mx-auto col-md-12">
       <div className="col-12 col-md-6">
         <input
           placeholder="Position:"

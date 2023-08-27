@@ -72,8 +72,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
             id="btncheck1"
             autoComplete={"off"}
             type="checkbox"
-            checked={isWorking}
             className="btn-check"
+            checked={isWorking}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setIsWorking(e.target.checked)
             }
@@ -104,10 +104,9 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           setWorkDescription(e.target.value)
         }
       />
-      <label className="text-bold">Tech Stack</label>
       <textarea
         className="form-control rounded my-3"
-        placeholder="Programming: Javascript, Python, Typescript..."
+        placeholder="Tech Stack:"
         value={techStack}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setTechStack(e.target.value)

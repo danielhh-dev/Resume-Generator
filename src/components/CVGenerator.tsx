@@ -187,6 +187,11 @@ const CVGenerator: React.FC = () => {
         />
       </div>
       {/* Education */}
+      <div
+        id="experience"
+        className="border container  p-5 rounded shadow-sm my-5"
+      >
+        <h4 className="text-center mb-5">Experience</h4>
       <EducationComponent
         university={university}
         degree={degree}
@@ -203,6 +208,7 @@ const CVGenerator: React.FC = () => {
         educationList={educationList}
         setEducationList={setEducationList}
       />
+      </div>
 
       {/* Skills */}
       <SkillsComponent

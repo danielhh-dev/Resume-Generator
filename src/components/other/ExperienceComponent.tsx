@@ -45,52 +45,69 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         />
       </div>
 
-      <div className="input-group m-3 gap-3">
-        <label className="form-label" htmlFor="first">
-          Since:
-        </label>
+      <div className="input-group my-4 d-flex justify-content-evenly">
+        <div className="d-flex flex-column">
+          <label className="form-label" htmlFor="first">
+            Since:
+          </label>
 
-        <input
-          aria-describedby="basic-addon3"
-          id="first"
-          className="form-control rounded"
-          value={since}
-          type="date"
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setSince(e.target.value)
-          }
-        />
-        <label>I'm working here:</label>
-        <input
-          type="checkbox"
-          checked={isWorking}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setIsWorking(e.target.checked)
-          }
-        />
-        <label>Until:</label>
-        <input
-          className="form-control rounded"
-          value={until}
-          type="date"
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setUntil(e.target.value)
-          }
-          disabled={isWorking}
-        />
+          <input
+            aria-describedby="basic-addon3"
+            id="first"
+            className="form-control rounded"
+            value={since}
+            type="date"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setSince(e.target.value)
+            }
+          />
+        </div>
+        <div
+          className="d-flex flex-column "
+          role="group"
+          aria-label="Basic checkbox toggle button group"
+        >
+          <label className="form-label">Do you still working here?</label>
+          <input
+            id="btncheck1"
+            autoComplete={"off"}
+            type="checkbox"
+            checked={isWorking}
+            className="btn-check"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setIsWorking(e.target.checked)
+            }
+          />
+          <label htmlFor="btncheck1" className="btn btn-outline-primary">
+            I'm working here:
+          </label>
+        </div>
+        <div className="d-flex flex-column">
+          <label className="form-label">Until:</label>
+          <input
+            className="form-control rounded"
+            value={until}
+            type="date"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setUntil(e.target.value)
+            }
+            disabled={isWorking}
+          />
+        </div>
       </div>
 
-      <label>workDescription:</label>
       <textarea
-        className="form-control rounded"
+        className="form-control rounded my-3"
         value={workDescription}
+        placeholder="Work Description:"
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setWorkDescription(e.target.value)
         }
       />
-      <label>Terch stack:</label>
+      <label className="text-bold">Tech Stack</label>
       <textarea
-        className="form-control rounded"
+        className="form-control rounded my-3"
+        placeholder="Programming: Javascript, Python, Typescript..."
         value={techStack}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setTechStack(e.target.value)

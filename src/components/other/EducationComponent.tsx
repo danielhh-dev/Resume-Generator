@@ -85,7 +85,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
         </button>
       </div>
     </div>
-    <ul className=" rounded bg-w mt-2">
+    <ul className=" rounded mt-2">
       {educationList.map((edu, index) => (
         <li key={index} className="my-3 fw-bold p-3">
           {edu.degree} in {edu.university}, {edu.startDate} -{" "}

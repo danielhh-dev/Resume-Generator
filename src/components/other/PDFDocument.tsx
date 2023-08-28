@@ -54,13 +54,23 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         <View>
           <Text style={styles.title}>Experience:</Text>
           {experiences.map((exp, index) => (
-            <View key={index} style={styles.indentation}>
-              <Text style={styles.contentSubtitle}>
-                {exp.position} in {exp.company}
-              </Text>
-              <Text style={styles.info}>
-                {exp.since} - {exp.isWorking ? "Present" : exp.until}
-              </Text>
+            <View
+              key={index}
+              style={[styles.indentation, { marginBottom: 10 }]}
+            >
+              <View
+                style={[
+                  { flexDirection: "row" },
+                  { justifyContent: "space-between" },
+                ]}
+              >
+                <Text style={styles.contentSubtitle}>
+                  {exp.position} in {exp.company}
+                </Text>
+                <Text style={styles.date}>
+                  {exp.since} - {exp.isWorking ? "Present" : exp.until}
+                </Text>
+              </View>
               <Text style={styles.description}>• {exp.workDescription}</Text>
               <Text style={styles.textBlackSmall}>
                 Tech Stack: {exp.techStack}
@@ -72,11 +82,18 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Education */}
         <Text style={styles.title}>Education:</Text>
         {educationList.map((edu, index) => (
-          <View key={index} style={styles.indentation}>
+          <View
+            key={index}
+            style={[
+              styles.indentation,
+              { flexDirection: "row" },
+              { justifyContent: "space-between" },
+            ]}
+          >
             <Text style={styles.contentSubtitle}>
               {edu.degree} in {edu.university}
             </Text>
-            <Text style={styles.info}>
+            <Text style={[styles.date, { marginBottom: 5 }]}>
               {edu.startDate} to {edu.isOngoing ? "Present" : edu.endDate}
             </Text>
           </View>

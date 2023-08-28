@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 50,
-    paddingVertical: 30,
+    paddingVertical: 25,
   },
   name: {
     fontSize: 18,
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     fontFamily: "Poppins-Medium",
     textAlign: "justify",
-    paddingHorizontal: 10,
+    paddingTop: 10,
   },
   position: {
     fontSize: 14,
@@ -65,16 +65,20 @@ export const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
   },
   description: {
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: "Poppins-Medium",
   },
   indentation: {
     marginHorizontal: 10,
   },
   my: {
-    marginVertical: 10,
+    marginVertical: 3,
   },
   me: {
     marginRight: 10,
+  },
+  date: {
+    fontSize: 8,
+    fontFamily: "Poppins-italic",
   },
 });

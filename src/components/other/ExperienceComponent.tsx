@@ -25,7 +25,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       <div className="col-12 col-md-6">
         <input
           placeholder="Position:"
-          className="form-control rounded"
+          className="form-control rounded mb-4"
           type="text"
           value={experience}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -118,7 +118,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         </button>
       </div>
     </div>
-    <ul className=" rounded bg-w pb-4">
+    <ul className=" rounded pb-4">
       {experiences.map((exp, index) => (
         <>
           <li key={index} className="my-3 fw-bold p-3">

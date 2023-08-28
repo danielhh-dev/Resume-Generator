@@ -30,7 +30,7 @@ const SkillsComponent: React.FC<SkillsProps> = ({
           </div>
         </div>
 
-        <ul className=" rounded bg-w pb-2">
+        <ul className=" rounded pb-2">
           {skills.map((skill, index) => (
             <li key={index} className="my-0 fw-bold p-1">
               {skill}

@@ -118,21 +118,24 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         </button>
       </div>
     </div>
-    <ul className="">
+    <ul className=" rounded bg-w pb-4">
       {experiences.map((exp, index) => (
         <>
-          <li key={index} className="my-3">
+          <li key={index} className="my-3 fw-bold p-3">
             {exp.position} at {exp.company}, {exp.since} -
             {exp.isWorking ? "Present" : exp.until}
             <button
-              className="btn btn-danger"
+              className="btn btn-danger rounded-circle mx-3 py-0 px-2"
               onClick={() => deleteExperience(index)}
             >
-              Delete
+              X
             </button>
           </li>
-          <span>{exp.workDescription}</span>
-          <span>{exp.techStack}</span>
+          <span className="fw-bold span-content mb-2">
+            {exp.workDescription}
+          </span>{" "}
+          <br />
+          <span className="fw-bold span-content mb-5">{exp.techStack}</span>
         </>
       ))}
     </ul>

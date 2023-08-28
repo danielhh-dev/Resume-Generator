@@ -84,21 +84,21 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
           Add Education
         </button>
       </div>
-      <ul>
-        {educationList.map((edu, index) => (
-          <li key={index}>
-            {edu.degree} in {edu.university}, {edu.startDate} -{" "}
-            {edu.isOngoing ? "Present" : edu.endDate}
-            <button
-              className="btn btn-danger"
-              onClick={() => deleteEducation(index)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
+    <ul className=" rounded bg-w mt-2">
+      {educationList.map((edu, index) => (
+        <li key={index} className="my-3 fw-bold p-3">
+          {edu.degree} in {edu.university}, {edu.startDate} -{" "}
+          {edu.isOngoing ? "Present" : edu.endDate}
+          <button
+            className="btn btn-danger rounded-circle mx-3 py-0 px-2"
+            onClick={() => deleteEducation(index)}
+          >
+            X
+          </button>
+        </li>
+      ))}
+    </ul>
   </div>
 );
 

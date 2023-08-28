@@ -15,6 +15,14 @@ body {
   background-color: var(--white) !important;
 }
 
+li {
+  color: var(--dark-blue) !important;
+}
+
+.span-content {
+  color: var(--dark-blue);
+}
+
 .bg-w {
   background-color: var(--white) !important;
 }

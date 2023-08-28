@@ -30,15 +30,15 @@ const SkillsComponent: React.FC<SkillsProps> = ({
           </div>
         </div>
 
-        <ul>
+        <ul className=" rounded bg-w pb-2">
           {skills.map((skill, index) => (
-            <li key={index}>
+            <li key={index} className="my-0 fw-bold p-1">
               {skill}
               <button
-                className="btn btn-danger"
+                className="btn btn-danger rounded-circle mx-3 py-0 px-2"
                 onClick={() => deleteSkill(index)}
               >
-                Delete
+                X
               </button>
             </li>
           ))}

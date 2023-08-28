@@ -67,7 +67,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           role="group"
           aria-label="Basic checkbox toggle button group"
         >
-          <label className="form-label">Do you still working here?</label>
+          <label className="form-label">Do you still work here?</label>
           <input
             id="btncheck1"
             autoComplete={"off"}
@@ -79,7 +79,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
             }
           />
           <label htmlFor="btncheck1" className="btn btn-outline-primary">
-            I'm working here:
+            I work here
           </label>
         </div>
         <div className="d-flex flex-column">

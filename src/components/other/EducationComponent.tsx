@@ -40,7 +40,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
 
       <div className="input-group my-4 d-flex justify-content-evenly">
         <div className="d-flex flex-column">
-          <label>Start Date:</label>
+          <label className="form-label">Start Date:</label>
           <input
             className="form-control rounded"
             value={startDate}
@@ -51,7 +51,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
           />
         </div>
         <div className="d-flex flex-column">
-          <label>Do you still studiying here?:</label>
+          <label className="form-label">Are you still studying here?</label>
           <input
             type="checkbox"
             checked={isOngoing}
@@ -67,7 +67,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
           </label>
         </div>
         <div className="d-flex flex-column">
-          <label>End Date:</label>
+          <label className="form-label">End Date:</label>
           <input
             className="form-control rounded"
             value={endDate}

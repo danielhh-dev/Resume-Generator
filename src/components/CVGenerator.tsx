@@ -191,23 +191,23 @@ const CVGenerator: React.FC = () => {
         id="experience"
         className="border container  p-5 rounded shadow-sm my-5"
       >
-        <h4 className="text-center mb-5">Experience</h4>
-      <EducationComponent
-        university={university}
-        degree={degree}
-        startDate={startDate}
-        endDate={endDate}
-        isOngoing={isOngoing}
-        setUniversity={setUniversity}
-        setDegree={setDegree}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
-        setIsOngoing={setIsOngoing}
-        addEducation={addEducation}
-        deleteEducation={deleteEducation}
-        educationList={educationList}
-        setEducationList={setEducationList}
-      />
+        <h4 className="text-center mb-5">Education</h4>
+        <EducationComponent
+          university={university}
+          degree={degree}
+          startDate={startDate}
+          endDate={endDate}
+          isOngoing={isOngoing}
+          setUniversity={setUniversity}
+          setDegree={setDegree}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          setIsOngoing={setIsOngoing}
+          addEducation={addEducation}
+          deleteEducation={deleteEducation}
+          educationList={educationList}
+          setEducationList={setEducationList}
+        />
       </div>
 
       {/* Skills */}

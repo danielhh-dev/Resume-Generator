@@ -67,3 +67,27 @@ div.border {
   color: var(--bs-btn-active-color) !important;
   background-color: var(--mint) !important;
 }
+
+::placeholder {
+  color: #afb4bb !important;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+  color: var(--dark-blue) !important;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  color: #ff0000 !important; /* Cambia este valor al color que desees */
+  font-weight: bold; /* Opcional: Puedes aplicar negrita u otros estilos también */
+}
+
+.footer {
+  background-color: var(--mint);
+  bottom: 0;
+  padding: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}

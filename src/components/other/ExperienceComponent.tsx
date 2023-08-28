@@ -112,9 +112,11 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           setTechStack(e.target.value)
         }
       />
-      <button className="btn btn-primary rounded" onClick={addExperience}>
-        Add Experience
-      </button>
+      <div className="text-end">
+        <button className="btn btn-primary rounded" onClick={addExperience}>
+          Add Experience
+        </button>
+      </div>
     </div>
     <ul className="">
       {experiences.map((exp, index) => (

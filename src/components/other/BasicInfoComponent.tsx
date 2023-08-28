@@ -48,7 +48,7 @@ const BasicInfoComponent: React.FC<BasicInfoProps> = ({
           <input
             type="email"
             placeholder="Email"
-            className="form-control "
+            className="form-control"
             value={email}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
@@ -57,7 +57,7 @@ const BasicInfoComponent: React.FC<BasicInfoProps> = ({
         </div>
         <div className="mx-3  my-1">
           <input
-            placeholder="Phone"
+            placeholder="Phone or City"
             type="text"
             className="form-control "
             value={phone}

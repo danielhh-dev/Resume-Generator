@@ -79,11 +79,11 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
           />
         </div>
       </div>
-
-      <button className="btn btn-primary " onClick={addEducation}>
-        Add Education
-      </button>
-
+      <div className="text-end">
+        <button className="btn btn-primary " onClick={addEducation}>
+          Add Education
+        </button>
+      </div>
       <ul>
         {educationList.map((edu, index) => (
           <li key={index}>

@@ -23,9 +23,11 @@ const SkillsComponent: React.FC<SkillsProps> = ({
               setNewSkill(e.target.value)
             }
           />
-          <button className="btn btn-primary my-4" onClick={addSkill}>
-            Add Skill
-          </button>
+          <div className="text-end">
+            <button className="btn btn-primary my-4" onClick={addSkill}>
+              Add Skill
+            </button>
+          </div>
         </div>
 
         <ul>

@@ -1,3 +1,69 @@
 * {
   box-sizing: border-box;
+  font-family: "Poppins" sans-serif;
+}
+
+:root {
+  --dark-blue: #494a63;
+  --gray: #eef1f7;
+  --white: #fafafa;
+  --mint: #5cd2c6;
+  --bs-btn-active-color: #fff;
+}
+
+body {
+  background-color: var(--white) !important;
+}
+
+.bg-w {
+  background-color: var(--white) !important;
+}
+
+.bg-g {
+  background-color: var(--gray);
+}
+
+h1 {
+  color: var(--mint) !important;
+}
+
+h3 {
+  color: var(--dark-blue) !important;
+}
+
+h4 {
+  color: var(--dark-blue) !important;
+}
+
+div.border {
+  border: 1px solid rgba(0, 0, 0, 0.01) !important;
+}
+
+.btn-primary {
+  background-color: var(--mint) !important;
+  border: var(--mint) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-blue) !important;
+  border: var(--dark-blue) !important;
+}
+
+.btn-check {
+  border: var(--dark-blue) !important;
+}
+
+.btn-outline-primary {
+  border: 1px solid var(--mint) !important;
+  color: var(--mint) !important;
+  background-color: #fff !important;
+}
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  color: var(--bs-btn-active-color) !important;
+  background-color: var(--mint) !important;
 }

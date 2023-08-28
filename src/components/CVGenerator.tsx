@@ -134,14 +134,14 @@ const CVGenerator: React.FC = () => {
   };
 
   return (
-    <div className="container-fluid mb-5 pb-5">
+    <div className="container-fluid mb-5 bg-w pb-5 ">
       <h1 className="text-center fw-bold mt-3">CV Generator</h1>
       <h3 className="text-center fw-light">ATS friendly</h3>
 
       {/* Basic info */}
       <div
         id="basic-info"
-        className="border container ps-0 p-5 py-2 rounded shadow-sm my-5"
+        className="border container ps-0 p-5 py-2 rounded bg-g shadow-sm my-5"
       >
         <h4 className="text-center mb-5 fw-bold">Basic information</h4>
         <BasicInfoComponent
@@ -163,7 +163,7 @@ const CVGenerator: React.FC = () => {
       {/* Experience */}
       <div
         id="experience"
-        className="border container  p-5 py-2 rounded shadow-sm my-5"
+        className="border container bg-g p-5 py-2 rounded shadow-sm my-5"
       >
         <h4 className="text-center mb-5 fw-bold">Experience</h4>
         <ExperienceComponent
@@ -189,7 +189,7 @@ const CVGenerator: React.FC = () => {
       {/* Education */}
       <div
         id="experience"
-        className="border container  p-5 py-2 rounded shadow-sm my-5"
+        className="border container bg-g p-5 py-2 rounded shadow-sm my-5"
       >
         <h4 className="text-center mb-5 fw-bold">Education</h4>
         <EducationComponent
@@ -213,7 +213,7 @@ const CVGenerator: React.FC = () => {
       {/* Skills */}
       <div
         id="experience"
-        className="border container  p-5 py-2 rounded shadow-sm my-5"
+        className="border container bg-g p-5 py-2 rounded shadow-sm my-5"
       >
         <h4 className="text-center mb-5 fw-bold">Skills</h4>
         <SkillsComponent
@@ -227,7 +227,7 @@ const CVGenerator: React.FC = () => {
 
       <div
         id="experience"
-        className="border container p-5 py-2 rounded shadow-sm my-5"
+        className="border container bg-g p-5 py-2 rounded shadow-sm my-5"
       >
         <div className="row mx-auto col-md-12">
           <h4 className="text-center mb-5 fw-bold">Resume Name: </h4>
@@ -237,8 +237,7 @@ const CVGenerator: React.FC = () => {
             value={resumeName}
             onChange={(e) => setResumeName(e.target.value)}
           />
-
-          {generateCV()}
+          <div className="mb-5">{generateCV()}</div>
         </div>
       </div>
     </div>

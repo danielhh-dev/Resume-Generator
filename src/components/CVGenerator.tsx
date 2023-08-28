@@ -135,15 +135,15 @@ const CVGenerator: React.FC = () => {
 
   return (
     <div className="container-fluid mb-5 pb-5">
-      <h1>CV Generator</h1>
-      <h3>ATS friendly</h3>
+      <h1 className="text-center fw-bold mt-3">CV Generator</h1>
+      <h3 className="text-center fw-light">ATS friendly</h3>
 
       {/* Basic info */}
       <div
         id="basic-info"
-        className="border container ps-0 p-5 rounded shadow-sm my-5"
+        className="border container ps-0 p-5 py-2 rounded shadow-sm my-5"
       >
-        <h4 className="text-center mb-5">Basic information</h4>
+        <h4 className="text-center mb-5 fw-bold">Basic information</h4>
         <BasicInfoComponent
           name={name}
           pretendedPosition={pretendedPosition}
@@ -163,9 +163,9 @@ const CVGenerator: React.FC = () => {
       {/* Experience */}
       <div
         id="experience"
-        className="border container  p-5 rounded shadow-sm my-5"
+        className="border container  p-5 py-2 rounded shadow-sm my-5"
       >
-        <h4 className="text-center mb-5">Experience</h4>
+        <h4 className="text-center mb-5 fw-bold">Experience</h4>
         <ExperienceComponent
           experience={experience}
           company={company}
@@ -189,9 +189,9 @@ const CVGenerator: React.FC = () => {
       {/* Education */}
       <div
         id="experience"
-        className="border container  p-5 rounded shadow-sm my-5"
+        className="border container  p-5 py-2 rounded shadow-sm my-5"
       >
-        <h4 className="text-center mb-5">Education</h4>
+        <h4 className="text-center mb-5 fw-bold">Education</h4>
         <EducationComponent
           university={university}
           degree={degree}
@@ -211,23 +211,36 @@ const CVGenerator: React.FC = () => {
       </div>
 
       {/* Skills */}
-      <SkillsComponent
-        newSkill={newSkill}
-        setNewSkill={setNewSkill}
-        addSkill={addSkill}
-        deleteSkill={deleteSkill}
-        skills={skills}
-      />
+      <div
+        id="experience"
+        className="border container  p-5 py-2 rounded shadow-sm my-5"
+      >
+        <h4 className="text-center mb-5 fw-bold">Skills</h4>
+        <SkillsComponent
+          newSkill={newSkill}
+          setNewSkill={setNewSkill}
+          addSkill={addSkill}
+          deleteSkill={deleteSkill}
+          skills={skills}
+        />
+      </div>
 
-      <label htmlFor="">Resume Name: </label>
-      <input
-        className="form-control rounded m-3"
-        type="text"
-        value={resumeName}
-        onChange={(e) => setResumeName(e.target.value)}
-      />
+      <div
+        id="experience"
+        className="border container p-5 py-2 rounded shadow-sm my-5"
+      >
+        <div className="row mx-auto col-md-12">
+          <h4 className="text-center mb-5 fw-bold">Resume Name: </h4>
+          <input
+            className="form-control rounded m-3"
+            type="text"
+            value={resumeName}
+            onChange={(e) => setResumeName(e.target.value)}
+          />
 
-      {generateCV()}
+          {generateCV()}
+        </div>
+      </div>
     </div>
   );
 };

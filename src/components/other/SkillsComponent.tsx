@@ -10,32 +10,38 @@ const SkillsComponent: React.FC<SkillsProps> = ({
 }) => {
   return (
     <>
-      <label>Skills:</label>
-      <textarea
-        className="form-control rounded"
-        value={newSkill}
-        placeholder="Programming: Javascript, Python, Typescript."
-        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-          setNewSkill(e.target.value)
-        }
-      />
-      <button className="btn btn-primary m-3" onClick={addSkill}>
-        Add Skill
-      </button>
+      <div className="d-flex justify-content-between flex-wrap col-12 ">
+        <div className="row mx-auto col-md-12">
+          <label className="form-label fw-bold">
+            Write your skill lists like the example below:
+          </label>
+          <textarea
+            className="form-control rounded"
+            value={newSkill}
+            placeholder="Programming: Javascript, Python, Typescript."
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              setNewSkill(e.target.value)
+            }
+          />
+          <button className="btn btn-primary my-4" onClick={addSkill}>
+            Add Skill
+          </button>
+        </div>
 
-      <ul>
-        {skills.map((skill, index) => (
-          <li key={index}>
-            {skill}
-            <button
-              className="btn btn-danger"
-              onClick={() => deleteSkill(index)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {skills.map((skill, index) => (
+            <li key={index}>
+              {skill}
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteSkill(index)}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

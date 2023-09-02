@@ -3,7 +3,7 @@ import { EducationComponentProps } from "../../interface/EducationProps";
 
 const EducationComponent: React.FC<EducationComponentProps> = ({
   educationList,
-  setEducationList,
+  // setEducationList,
   university,
   setUniversity,
   degree,

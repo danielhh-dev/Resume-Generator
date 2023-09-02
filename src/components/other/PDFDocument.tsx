@@ -53,30 +53,33 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         {/* Experience */}
         <View>
           <Text style={styles.title}>Experience:</Text>
-          {experiences.map((exp, index) => (
-            <View
-              key={index}
-              style={[styles.indentation, { marginBottom: 10 }]}
-            >
+          
+            {experiences.map((exp, index) => (
               <View
-                style={[
-                  { flexDirection: "row" },
-                  { justifyContent: "space-between" },
-                ]}
+                key={index}
+                style={[styles.indentation, { marginBottom: 10 }]}
               >
-                <Text style={styles.contentSubtitle}>
-                  {exp.position} in {exp.company}
-                </Text>
-                <Text style={styles.date}>
-                  {exp.since} - {exp.isWorking ? "Present" : exp.until}
+                {/* <Text>{exp.position}</Text> */}
+                <View
+                  style={[
+                    { flexDirection: "row" },
+                    { justifyContent: "space-between" },
+                  ]}
+                >
+                  <Text style={styles.contentSubtitle}>
+                    {exp.position} in {exp.company}
+                  </Text>
+                  <Text style={styles.date}>
+                    {exp.since} - {exp.isWorking ? "Present" : exp.until}
+                  </Text>
+                </View>
+                <Text style={styles.description}>• {exp.workDescription}</Text>
+                <Text style={styles.textBlackSmall}>
+                  Tech Stack: {exp.techStack}
                 </Text>
               </View>
-              <Text style={styles.description}>• {exp.workDescription}</Text>
-              <Text style={styles.textBlackSmall}>
-                Tech Stack: {exp.techStack}
-              </Text>
-            </View>
-          ))}
+            ))}
+       
         </View>
 
         {/* Education */}
@@ -86,7 +89,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
             key={index}
             style={[
               styles.indentation,
-              { flexDirection: "row" },
+              { flexDirection: "column" },
               { justifyContent: "space-between" },
             ]}
           >
@@ -100,14 +103,16 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({
         ))}
         {/* Skills */}
         <Text style={styles.title}>Skills:</Text>
-        {skills.map((skill, index) => (
-          <Text
-            key={index}
-            style={[styles.info, styles.indentation, styles.my]}
-          >
-            • {skill}
-          </Text>
-        ))}
+        <View>
+          {skills.map((skill, index) => (
+            <Text
+              key={index}
+              style={[styles.info, styles.indentation, styles.my]}
+            >
+              • {skill}
+            </Text>
+          ))}
+        </View>
       </View>
     </Page>
   </Document>

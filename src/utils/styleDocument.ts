@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     fontFamily: "Poppins-Bold",
-    marginBottom: 4,
+    marginBottom: 10,
     color: "#3A3A3A"
   },
   title: {
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   hr: {
-    marginVertical: 5,
+    marginVertical: 3,
     width: "100%",
     height: 1,
     backgroundColor: "#3A3A3A",
@@ -65,11 +65,10 @@ export const styles = StyleSheet.create({
 
   },
   webs: {
-    marginTop: 20,
+    marginTop: 30,
     flexDirection: "column",
     alignItems: "flex-end",
-    color: "#3A3A3A"
-
+    color: "#3A3A3A",
   },
   contentSubtitle: {
     fontSize: 11,
